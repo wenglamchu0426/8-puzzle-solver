@@ -1,16 +1,3 @@
-#
-# searcher.py (Final project)
-#
-# classes for objects that perform state-space search on Eight Puzzles  
-#
-# name: 
-# email:
-#
-# If you worked with a partner, put their contact info below:
-# partner's name:
-# partner's email:
-#
-
 import random
 from state import *
 
@@ -20,7 +7,6 @@ class Searcher:
         This will also be used as a superclass of classes for
         other state-space search algorithms.
     """
-    ### Add your Searcher method definitions here. ###
     def __init__(self, depth_limit):
         """ constructs a new Searcher object. 
         """
@@ -28,12 +14,10 @@ class Searcher:
         self.num_tested = 0 
         self.depth_limit = depth_limit 
 
-
     def __repr__(self):
         """ returns a string representation of the Searcher object
             referred to by self.
         """
-        # You should *NOT* change this method.
         s = type(self).__name__ + ': '
         s += str(len(self.states)) + ' untested, '
         s += str(self.num_tested) + ' tested, '
@@ -94,9 +78,6 @@ class Searcher:
                 self.add_states(successors)
         return None
 
-
-### Add your BFSeacher and DFSearcher class definitions below. ###
-
 class BFSearcher(Searcher): 
     """ a class for searcher objects that perform breadth-first search (BFS) 
         instead of random search.
@@ -123,7 +104,6 @@ def h0(state):
     """ a heuristic function that always returns 0 """
     return 0
 
-### Add your other heuristic functions here. ###
 def h1(state):
     """ a heuristic that returns how many additional moves are needed to get from 
         the state to the goal state. 
@@ -141,8 +121,6 @@ class GreedySearcher(Searcher):
     """ A class for objects that perform an informed greedy state-space
         search on an Eight Puzzle.
     """
-    ### Add your GreedySearcher method definitions here. ###
-
 
     def __repr__(self):
         """ returns a string representation of the GreedySearcher object
@@ -179,9 +157,7 @@ class GreedySearcher(Searcher):
         s = max(self.states)
         self.states.remove(s)
         return s[1]
-
-
-### Add your AStarSeacher class definition below. ###
+        
 
 class AStarSearcher(GreedySearcher):
     """ A class for objects that perform A* search.
