@@ -1,18 +1,3 @@
-#
-# eight_puzzle.py (Final project)
-#
-# driver/test code for state-space search on Eight Puzzles   
-#
-# Name: Weng Lam Chu
-# Email: wenglam@bu.edu 
-
-#
-# If you worked with a partner, put their contact info below:
-#
-# Partner’s name: Alicia Zheng
-# Partner’s email: alzheng@bu.edu
-#
-
 from searcher import *
 from timer import *
 
@@ -31,8 +16,6 @@ def create_searcher(algorithm, param):
     
     if algorithm == 'random':
         searcher = Searcher(param)
-## You will uncommment the following lines as you implement
-## other algorithms.
     elif algorithm == 'BFS':
         searcher = BFSearcher(param)
     elif algorithm == 'DFS':
@@ -89,7 +72,6 @@ def process_file(filename, algorithm, param):
     num_moves = 0
     num_states = 0
 
-    
     file = open(filename, 'r')
     for line in file:
         puzzle = line[:-1]
